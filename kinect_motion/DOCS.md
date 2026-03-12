@@ -5,14 +5,14 @@ This is a custom Home Assistant OS Add-on that transforms a standard Xbox One Ki
 Unlike other Kinect implementations that require heavy GPU acceleration or full skeletal tracking, this add-on is heavily optimized for low-power hardware (like mini PCs or older All-In-Ones). It bypasses the massive 1080p RGB video feed and forces libfreenect2 into a CPU-only packet pipeline, analyzing raw infrared depth data to detect motion while saving massive amounts of USB bandwidth.
 ⚙️ Hardware Requirements
 
-``  Home Assistant OS (Must have the Supervisor to run Add-ons).
+  Home Assistant OS (Must have the Supervisor to run Add-ons).
     Xbox Kinect V2 with the Windows PC USB 3.0 Adapter.
     A dedicated USB 3.0 port. (The Kinect V2 uses massive USB bandwidth. Do not plug it into a USB hub).
     An MQTT Broker (like the official Mosquitto Add-on).
 
 🚀 Installation
 
-``  Navigate to your Home Assistant Settings > Add-ons.
+  Navigate to your Home Assistant Settings > Add-ons.
     Click Add-on Store in the bottom right.
     Click the three dots (...) in the top right corner and select Repositories.
     Paste the URL of this GitHub repository and click Add.
@@ -23,7 +23,7 @@ Unlike other Kinect implementations that require heavy GPU acceleration or full 
 
 Before starting the Add-on, go to the Configuration tab to set your variables:
 
-``  MQTT Broker: Usually core-mosquitto if running the local HA add-on.
+  MQTT Broker: Usually core-mosquitto if running the local HA add-on.
     MQTT User / Pass: Credentials for your MQTT broker.
     Sensitivity: How drastic the pixel change needs to be to trigger motion. Default is 100000000. Lower this number if it isn't picking you up; raise it if it is triggering on empty-room static.
     Cooldown: The number of seconds the room must be completely still before it sends the OFF signal.
