@@ -15,4 +15,3 @@ To install any of these in your Home Assistant instance:
 * **[Kinect V2 Motion Watcher](./kinect_motion/)**: Transforms an Xbox One Kinect into a highly sensitive, local-only MQTT motion sensor optimized for low-power hardware.
 
 ---
-*More coming soon...*
