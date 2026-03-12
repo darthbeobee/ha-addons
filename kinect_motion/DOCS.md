@@ -43,12 +43,16 @@ mqtt:
       
    ⚠️ Troubleshooting
 
-   The log is spammed with [DepthPacketStreamParser] XX packets were lost This is normal on lower-power machines. The Kinect blasts 30 frames per second of raw data. If your host machine's USB controller gets overwhelmed, it drops fragments of the data. The Python script is designed with a "Heartbeat" to push through this packet loss and will still trigger motion accurately even if the C++ drivers are complaining in the background. If it fails to connect entirely, ensure you are plugged directly into a blue USB 3.0 port (and not a USB hub).
+   1. The log is spammed with [DepthPacketStreamParser] XX packets were lost This is normal on lower-power machines. The Kinect blasts 30 frames per second of raw data. If your host machine's USB controller gets overwhelmed, it drops fragments of the data. The Python script is designed with a "Heartbeat" to push through this packet loss and will still trigger motion accurately even if the C++ drivers are complaining in the background. If it fails to connect entirely, ensure you are plugged directly into a blue USB 3.0 port (and not a USB hub).
 
-   The Add-on hangs at Starting optimized motion script... This is a "Zombie USB" lock. If you restarted the Add-on while the camera was active, the host OS may not have released the USB port yet. Fix: Physically unplug the Kinect's USB cable from your server, wait 3 seconds, and plug it back in to force a reset.
+  2. The Add-on hangs at Starting optimized motion script... This is a "Zombie USB" lock. If you restarted the Add-on while the camera was active, the host OS may not have released the USB port yet.
+    
+     Fix: Physically unplug the Kinect's USB cable from your server, wait 3 seconds, and plug it back in to force a reset.
  
-   The log shows CRITICAL ERROR: /data/options.json not found You tried to start the Add-on before saving your settings. Fix: Go to the Configuration tab, type in your MQTT details, and hit Save (even if the default values are already there). Then go back and start the Add-on.
+  5. The log shows CRITICAL ERROR: /data/options.json not found You tried to start the Add-on before saving your settings.
+    
+     Fix: Go to the Configuration tab, type in your MQTT details, and hit Save (even if the default values are already there). Then go back and start the Add-on.
 
-   The sensor is constantly stuck on "Detected" or never triggers Your threshold is likely fighting with the infrared static in your room.
+  6. The sensor is constantly stuck on "Detected" or never triggers Your threshold is likely fighting with the infrared static in your room.
 
-   Fix: Look at the Add-on logs. When the room is completely empty, look at the Score: XXXXXXXX number being printed. Go to your Configuration tab and set the Sensitivity number slightly higher than that baseline static score.
+     Fix: Look at the Add-on logs. When the room is completely empty, look at the Score: XXXXXXXX number being printed. Go to  your Configuration tab and set the Sensitivity number slightly higher than that baseline static score.
