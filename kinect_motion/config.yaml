@@ -1,0 +1,32 @@
+name: "Kinect V2 Motion Watcher"
+description: "Custom libfreenect2 container to process Kinect V2 depth data for motion."
+version: "1.0.1"
+slug: "kinect_motion"
+init: false
+arch:
+  - amd64
+startup: "application"
+boot: "auto"
+# CRITICAL PERMISSIONS FOR THE KINECT
+usb: true
+udev: true
+privileged:
+  - SYS_RAWIO
+
+#The User Interface Options (Default values)
+options:
+  mqtt_broker: "core-mosquitto"
+  mqtt_port: 1883
+  mqtt_user: ""
+  mqtt_pass: ""
+  sensitivity: 100000000
+  cooldown: 5
+
+#The UI Blueprint (Tells HA how to draw the boxes)
+schema:
+  mqtt_broker: str
+  mqtt_port: port
+  mqtt_user: str
+  mqtt_pass: password
+  sensitivity: int
+  cooldown: int
